@@ -35,11 +35,13 @@ export var startGetPost = (postId) => {
     var postRef = firebaseRef.child(`posts/${postId}`);
     return postRef.once('value').then((snapshot) => {
       var post = snapshot.val() || {};
+      console.log("snapshot val: ", post);
       var parsedPost = {};
       parsedPost = {
         id: postId,
         ...post
       };
+      console.log("parsedPost: ", parsedPost);
       dispatch(getPost(parsedPost));
     });
   };
@@ -49,6 +51,33 @@ export var getPost = (post) => {
     type: "GET_POST",
     post
   };
+};
+
+export var startAddPost = (post) => {
+  return (dispatch, getState) => {
+    var createdPost = {
+      ...post,
+      createdAt: moment().unix()
+    };
+    // var uid = getState().auth.uid;
+    // var todoRef = firebaseRef.child(`users/${uid}/todos`).push(todo);
+
+    var postRef = firebaseRef.child(`posts/`).push(createdPost);
+
+    return postRef.then(() => {
+      dispatch(addPost({
+        ...createdPost,
+        id: postRef.key
+      }));
+    });
+  };
+};
+
+export var addPost = (post) => {
+  return {
+    type: "ADD_POST",
+    post
+  }
 };
 
 

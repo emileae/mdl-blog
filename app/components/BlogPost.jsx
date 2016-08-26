@@ -3,7 +3,6 @@ var {connect} = require('react-redux');
 var moment = require('moment');
 var actions = require('actions');
 import {Link} from 'react-router';
-var store = require('configureStore').configure();
 
 import DataHandler from 'DataHandler';
 
@@ -14,6 +13,19 @@ var imageStyle = {
 };
 
 export var BlogPost = React.createClass({
+  componentWillMount() {
+    // var postId = this.props.params.postId;
+    // store.dispatch(actions.startGetPost(postId));
+    console.log('Component will mount.....');
+  },
+  componentDidMount() {
+    // var postId = this.props.params.postId;
+    // store.dispatch(actions.startGetPost(postId));
+    // console.log('Component did mount.....');
+    var {dispatch} = this.props;
+    var postId = this.props.params.postId;
+    dispatch(actions.startGetPost(postId));
+  },
   render: function(){
 
     // var postId = this.props.params.postId;
@@ -28,10 +40,26 @@ export var BlogPost = React.createClass({
 
     var renderPost = (postId) => {
 
-      var postId = this.props.params.postId;
-      store.dispatch(actions.startGetPost(postId));
+      // var postId = this.props.params.postId;
+      // store.dispatch(actions.startGetPost(postId));
 
-      var {post} = this.props;
+      // var {post} = this.props;
+
+      // var post = {
+      //   title: 'title',
+      //   text: 'hello this is the text...'
+      // }
+
+      var {post, dispatch} = this.props;
+      //
+      // console.log("is there a post??", post);
+      //
+      // if ( !post || Object.keys(post).length === 0 && post.constructor === Object ){
+      //   var postId = this.props.params.postId;
+      //   dispatch(actions.startGetPost(postId));
+      // };
+
+      // var post = undefined;
 
       if (!post){
         return (
@@ -42,7 +70,6 @@ export var BlogPost = React.createClass({
       }else{
         return (
           <div className="blog-list-item">
-            <img src={post.coverImage} style={imageStyle}/>
             <h2>
               {post.title}
             </h2>
@@ -62,6 +89,9 @@ export var BlogPost = React.createClass({
 
 export default connect(
   (state) => {
-    return state;// return post property on state
+    return {
+      post: state.post,
+      dispatch: state.dispatch
+    };// return post property on state
   }
 )(BlogPost);

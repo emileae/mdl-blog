@@ -8,6 +8,11 @@ export var postsReducer = (state = [], action) => {
       ...state,
       ...action.posts
     ];
+    case 'ADD_POST':
+      return [
+        ...state,
+        action.post
+      ];
     default:
       return state
   }
@@ -16,7 +21,8 @@ export var postsReducer = (state = [], action) => {
 export var postReducer = (state = {}, action) => {
   switch(action.type){
     case 'GET_POST':
-      return action.post
+      console.log('GET_POST: ', action.post);
+      return action.post;
     default:
       return state
   }

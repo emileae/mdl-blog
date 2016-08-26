@@ -3,6 +3,7 @@ var {connect} = require('react-redux');
 var moment = require('moment');
 var actions = require('actions');
 import {Link} from 'react-router';
+//var store = require('configureStore').configure();
 
 var imageStyle = {
   maxWidth: '500px',
@@ -11,6 +12,9 @@ var imageStyle = {
 };
 
 export var BlogItem = React.createClass({
+  // getPost: function(postId) {
+  //   store.dispatch(actions.startGetPost(postId));
+  // },
   render: function(){
     var {id, title, body, coverImage, author, created, dispatch} = this.props;
     var linkUrl = '/post/'+id.toString();
