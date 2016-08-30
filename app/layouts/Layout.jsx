@@ -25,9 +25,9 @@ export var Layout = React.createClass({
         <div className="mdl-layout__drawer">
           <span className="mdl-layout-title">Title</span>
           <nav className="mdl-navigation">
-            <a className="mdl-navigation__link" href="">Link</a>
-            <a className="mdl-navigation__link" href="">Link</a>
-            <a className="mdl-navigation__link" href="">Link</a>
+            <IndexLink to="/" className="mdl-navigation__link" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Home</IndexLink>
+            <IndexLink to="/yoyo" className="mdl-navigation__link" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Yoyo</IndexLink>
+            <IndexLink to="/blog" className="mdl-navigation__link" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Blog</IndexLink>
             <a className="mdl-navigation__link" href="">Link</a>
           </nav>
         </div>
