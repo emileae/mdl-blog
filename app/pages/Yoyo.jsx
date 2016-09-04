@@ -11,15 +11,12 @@ import Layout from 'Layout';
 export var Yoyo = React.createClass({
   render() {
     return (
-      <div>
-        <Layout>
-          <p>Yoyo Page</p>
-          <div>
-            <p>This is the Yoyo page...</p>
-          </div>
-        </Layout>
-
-      </div>
+      <Layout>
+        <p>Yoyo Page</p>
+        <div>
+          <p>This is the Yoyo page...</p>
+        </div>
+      </Layout>
     )
   }
 });

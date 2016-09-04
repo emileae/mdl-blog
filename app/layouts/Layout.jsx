@@ -7,6 +7,10 @@ import {Link, IndexLink} from 'react-router';
 import * as actions from 'actions';
 
 export var Layout = React.createClass({
+  componentDidMount() {
+    // this tells MDL that it needs to initialise components to refresh things
+    componentHandler.upgradeDom();
+  },
   render() {
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
