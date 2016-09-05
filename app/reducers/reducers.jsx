@@ -1,6 +1,23 @@
 var uuid = require('node-uuid');
 var moment = require('moment');
 
+export var settingsReducer = (state = {showBackButton: false, showMoreButton: true}, action) => {
+  switch(action.type){
+    case 'SHOW_BACK_BUTTON':
+      return {
+        ...state,
+        showBackButton: action.showBackButton
+      }
+      case 'SHOW_MORE_BUTTON':
+        return {
+          ...state,
+          showMoreButton: action.showMoreButton
+        }
+    default:
+      return state
+  }
+};
+
 export var postsReducer = (state = [], action) => {
   switch(action.type){
     case 'GET_POSTS':

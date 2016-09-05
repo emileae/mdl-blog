@@ -2,7 +2,24 @@ import moment from 'moment';
 
 import firebase, {firebaseRef, githubProvider} from 'app/firebase/';// if file is called index can leave off filename
 
+// UI settings
+
+export var showBackButton = (showBackButton) => {
+  return {
+    type: "SHOW_BACK_BUTTON",
+    showBackButton
+  }
+};
+export var showMoreButton = (showMoreButton) => {
+  return {
+    type: "SHOW_MORE_BUTTON",
+    showMoreButton
+  }
+};
+
+
 // for the blog
+
 export var startGetPosts = () => {
   return (dispatch, getState) => {
     //var uid = getState().auth.uid;

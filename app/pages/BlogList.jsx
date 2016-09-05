@@ -13,12 +13,13 @@ import DataHandler from 'DataHandler';
 import Layout from 'Layout';
 
 // import components
-import BlogItem from 'BlogItem';
+import PostPreview from 'PostPreview';
 
 export var BlogList = React.createClass({
   render() {
 
     var {posts} = this.props;
+
 
     var renderPostList = () => {
       if (posts.length === 0){
@@ -30,7 +31,7 @@ export var BlogList = React.createClass({
       }
       return posts.map((post) => {
         return (
-          <BlogItem key={post.id} {...post}/>
+          <PostPreview key={post.id} {...post}/>
         );
       })
     };

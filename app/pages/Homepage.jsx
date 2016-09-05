@@ -12,10 +12,6 @@ export var Homepage = React.createClass({
   render() {
     return (
       <Layout>
-        <p>Home Page</p>
-        <div>
-          <p>This is the home page...</p>
-        </div>
       </Layout>
     )
   }
