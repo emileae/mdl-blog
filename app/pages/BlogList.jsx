@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Redux from 'react-redux';
+import {Link} from 'react-router';
 
 // third aprty stuff
 import moment from 'moment';
@@ -38,7 +39,22 @@ export var BlogList = React.createClass({
 
     return (
       <Layout>
-        {renderPostList()}
+
+        <div className="demo-blog__posts mdl-grid">
+          {renderPostList()}
+
+          <nav className="demo-nav mdl-cell mdl-cell--12-col">
+            <div className="section-spacer"></div>
+            <Link to="/?from=xx" className="demo-nav__button" title="show more">
+              More
+              <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                <i className="material-icons" role="presentation">arrow_forward</i>
+              </button>
+            </Link>
+          </nav>
+
+        </div>
+
       </Layout>
     )
   }

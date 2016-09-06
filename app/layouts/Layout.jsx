@@ -10,52 +10,45 @@ export var Layout = React.createClass({
   componentDidMount() {
     // this tells MDL that it needs to initialise components to refresh things
     componentHandler.upgradeDom();
+    componentHandler.upgradeAllRegistered();
   },
   render() {
 
     var {settings} = this.props;
 
-    var showBackButton = () => {
-      if ( settings.showBackButton ){
-        return (
-          <div className="demo-back">
-            <Link to="/" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" title="go back" role="button">
-              <i className="material-icons" role="presentation">arrow_back</i>
-            </Link>
-          </div>
-        )
-      };
-    };
+    // var showBackButton = () => {
+    //   if ( settings.showBackButton ){
+    //     return (
+    //       <div className="demo-back">
+    //         <IndexLink className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" to="/" title="go back" role="button">
+    //           <i className="material-icons" role="presentation">arrow_back</i>
+    //         </IndexLink>
+    //       </div>
+    //     )
+    //   };
+    // };
 
-    var showMoreButton = () => {
-      if ( settings.showMoreButton ){
-      return (
-        <nav className="demo-nav mdl-cell mdl-cell--12-col">
-          <div className="section-spacer"></div>
-          <a href="entry.html" className="demo-nav__button" title="show more">
-            More
-            <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <i className="material-icons" role="presentation">arrow_forward</i>
-            </button>
-          </a>
-        </nav>
-      );
-      }
-    };
+    // var showMoreButton = () => {
+    //   if ( settings.showMoreButton ){
+    //   return (
+    //     <nav className="demo-nav mdl-cell mdl-cell--12-col">
+    //       <div className="section-spacer"></div>
+    //       <a href="entry.html" className="demo-nav__button" title="show more">
+    //         More
+    //         <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    //           <i className="material-icons" role="presentation">arrow_forward</i>
+    //         </button>
+    //       </a>
+    //     </nav>
+    //   );
+    //   }
+    // };
 
     return (
       <div className="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
         <main className="mdl-layout__content">
 
-          {showBackButton()}
-
-          <div className="demo-blog__posts mdl-grid">
-
             { this.props.children }
-
-          {showMoreButton()}
-
-          </div>
 
           <footer className="mdl-mini-footer">
             <div className="mdl-mini-footer--left-section">

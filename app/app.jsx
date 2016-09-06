@@ -24,7 +24,7 @@ import router from 'app/router/';
 store.dispatch(actions.startGetPosts());
 
 // Load foundation
-//$(document).foundation();
+$(document).foundation();
 
 // load custom styles
 require('style!css!sass!applicationStyles')

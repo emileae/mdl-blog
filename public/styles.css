@@ -40,6 +40,7 @@ body .demo-blog {
 
 .demo-blog .demo-blog__posts {
   max-width: 900px;
+  min-height:90vh;
   padding: 0;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -52,7 +53,7 @@ body .demo-blog {
 }
 
 .demo-blog.mdl-layout .mdl-layout__content {
-  padding-top: 230px;
+  padding-top: 100px;/* was 230px */
   position: relative;
   -webkit-overflow-scrolling: touch;
 }
@@ -426,7 +427,7 @@ body .demo-blog {
   padding-left: 48px;
 }
 
-.demo-blog--blogpost .demo-back {
+.demo-back {
   position: absolute;
   top: 16px;
   left: 16px;

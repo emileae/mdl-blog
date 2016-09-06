@@ -82,7 +82,17 @@ export var Post = React.createClass({
 
     return (
       <Layout>
-        {renderPost()}
+
+        <div className="demo-back">
+          <Link className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" to="/" title="go back" role="button">
+            <i className="material-icons" role="presentation">arrow_back</i>
+          </Link>
+        </div>
+
+        <div className="demo-blog__posts mdl-grid">
+          {renderPost()}
+        </div>
+
       </Layout>
     )
   }

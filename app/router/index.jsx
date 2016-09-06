@@ -4,10 +4,10 @@ var store = require('configureStore').configure();
 var actions = require('actions');
 
 // import pages
-import Homepage from 'Homepage';
-import Yoyo from 'Yoyo';
 import BlogList from 'BlogList';
 import BlogPost from 'BlogPost';
+import Homepage from 'Homepage';
+import Login from 'Login';
 import Post from 'Post';
 
 import TodoApp from 'TodoApp';
@@ -35,14 +35,12 @@ var indexSettings = (showMoreButton) => {
 };
 
 
-
 export default (
   <Router history={hashHistory}>
     <Route path="/">
       <IndexRoute component={BlogList} onEnter={indexSettings(true)}></IndexRoute>
-      <Route path="/yoyo" component={Yoyo}></Route>
-      <Route path="/blog" component={BlogList}></Route>
-      <Route path="/post/:postId" component={Post} onEnter={indexSettings(false)}></Route>
+      <Route path="/login" component={Login}></Route>
+      <Route path="/post/:postId" component={Post}></Route>
     </Route>
   </Router>
 )
