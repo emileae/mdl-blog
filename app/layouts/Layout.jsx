@@ -45,7 +45,7 @@ export var Layout = React.createClass({
     // };
 
     return (
-      <div className="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+      <div className="demo-blog mdl-layout">
         <main className="mdl-layout__content">
 
             { this.props.children }

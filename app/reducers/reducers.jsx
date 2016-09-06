@@ -1,5 +1,19 @@
+
+// Draft.js editor
+import {Editor, EditorState} from 'draft-js';
+
 var uuid = require('node-uuid');
 var moment = require('moment');
+
+
+export var editorStateReducer = (state = EditorState.createEmpty(), action) => {
+  switch(action.type){
+    case 'SET_EDITOR_STATE':
+      return action.editorState
+    default:
+      return state
+  }
+};
 
 export var settingsReducer = (state = {showBackButton: false, showMoreButton: true}, action) => {
   switch(action.type){

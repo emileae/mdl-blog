@@ -18,6 +18,13 @@ export var showMoreButton = (showMoreButton) => {
   }
 };
 
+export var setEditor = (editorState) => {
+  return {
+    type: "SET_EDITOR_STATE",
+    editorState
+  }
+};
+
 
 // for the blog
 
@@ -225,6 +232,7 @@ export var startLogin = () => {
   return (dispatch, getState) => {
     return firebase.auth().signInWithPopup(facebookProvider).then((result) => {
       console.log("Auth worked", result);
+      dispatch(login(result.user.uid));
     }, (error) => {
       console.log('unable to auth', error);
     });

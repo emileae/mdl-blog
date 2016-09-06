@@ -19,7 +19,34 @@ import PostPreview from 'PostPreview';
 export var BlogList = React.createClass({
   render() {
 
-    var {posts} = this.props;
+    var {posts, auth} = this.props;
+
+    var renderNewPostForm = () => {
+      if(auth){
+        if ( auth.uid && auth.uid.length > 0 ){
+          return (
+            <div>
+              <form action="#">
+                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input className="mdl-textfield__input" type="text" id="new-post-title"/>
+                  <label className="mdl-textfield__label" for="new-post-title">Title</label>
+                </div>
+                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input className="mdl-textfield__input" type="text" id="new-post-short-description"/>
+                  <label className="mdl-textfield__label" for="new-post-short-description">Short description</label>
+                </div>
+                <div className="">
+                  <button class="mdl-button mdl-js-button mdl-button--fab">
+                    Save
+                  </button>
+                </div>
+              </form>
+            </div>
+          )
+        };
+      };
+
+    };
 
 
     var renderPostList = () => {
@@ -41,6 +68,9 @@ export var BlogList = React.createClass({
       <Layout>
 
         <div className="demo-blog__posts mdl-grid">
+
+          {renderNewPostForm()}
+
           {renderPostList()}
 
           <nav className="demo-nav mdl-cell mdl-cell--12-col">

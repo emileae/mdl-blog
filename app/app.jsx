@@ -9,22 +9,23 @@ import firebase from 'app/firebase/';
 import router from 'app/router/';
 
 // authentication
-// firebase.auth().onAuthStateChanged((user) => {
-//   if (user) {
-//     store.dispatch(actions.login(user.uid));
-//     store.dispatch(actions.startAddTodos());
-//     hashHistory.push('/todos');
-//   }else{
-//     store.dispatch(actions.logout());
-//     hashHistory.push('/');
-//   };
-// });
+firebase.auth().onAuthStateChanged((user) => {
+  console.log('Auth State Changed');
+  if (user) {
+    // store.dispatch(actions.login(user.uid));
+    // store.dispatch(actions.startAddTodos());
+    // hashHistory.push('/todos');
+  }else{
+    store.dispatch(actions.logout());
+    hashHistory.push('/');
+  };
+});
 
 // load the first blog posts initially
 store.dispatch(actions.startGetPosts());
 
 // Load foundation
-$(document).foundation();
+//$(document).foundation();
 
 // load custom styles
 require('style!css!sass!applicationStyles')

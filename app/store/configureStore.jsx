@@ -1,7 +1,7 @@
 //var redux = require('redux');
 import * as redux from 'redux';
 
-import {authReducer, postsReducer, postReducer, settingsReducer} from 'reducers';
+import {authReducer, postsReducer, postReducer, settingsReducer, editorStateReducer} from 'reducers';
 
 import thunk from 'redux-thunk';
 
@@ -10,7 +10,8 @@ export var configure = (initialState = {}) => {
     posts: postsReducer,
     post: postReducer,
     settings: settingsReducer,
-    auth: authReducer
+    auth: authReducer,
+    editorState: editorStateReducer
   });
 
   var store = redux.createStore(reducer, initialState, redux.compose(
